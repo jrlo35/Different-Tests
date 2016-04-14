@@ -30,5 +30,14 @@ describe('API integration', function(){
   		[200,{'Content-Type': 'application/json'}, JSON.stringify(JSONresponse)]);
   });
 
+  after(function() {
+  	server.restore();
+  });
+
+  it('todo.setup receives an array of todos when todo.init is called', function(){
+  	todo.init();
+  	server.respond();
+  	assert(setupStub.calledWith(JSONresponse.todos));
+  });
   
 });
