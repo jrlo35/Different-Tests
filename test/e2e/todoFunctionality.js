@@ -29,4 +29,8 @@ casper.test.begin('Adds and removes todo items',3, function suite(test){
 		//Asserts that an element matching the provided selector expression doesn't exists within the remote DOM environment
 		test.assertDoesntExist('.todo-list .todo-item', 'Todo should not exist after removed');
 	});
-})
+
+	casper.run(function() {
+		test.done();
+	});
+});
